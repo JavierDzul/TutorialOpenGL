@@ -1,0 +1,137 @@
+<section>
+    <section data-auto-animate>
+        <h1 class="r-fit-text">
+            Animación
+        </h1>
+    </section>
+
+    <section>
+        <h3>¿Qué es la Animación en OpenGL?</h3>
+        <p>La animación en OpenGL consiste en cambiar la posición, rotación o propiedades de un objeto a lo largo del tiempo.</p>
+        <ul>
+            <li>Los objetos se actualizan cuadro por cuadro.</li>
+            <li>Se suelen usar temporizadores o bucles de actualización.</li>
+            <li>Las transformaciones (traslación, rotación, escalado) juegan un papel clave en la animación.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 3 -->
+    <section>
+        <h3>Temporizadores en OpenGL</h3>
+        <p>Los temporizadores controlan la velocidad de actualización de la animación. En OpenGL con GLUT, podemos usar <code>glutTimerFunc</code>:</p>
+        <pre><code class="language-cpp">
+void update(int value) {
+// Lógica de animación aquí
+glutPostRedisplay();  // Volver a dibujar la escena
+glutTimerFunc(16, update, 0);  // Llamar de nuevo en 16ms (~60 FPS)
+}
+        </code></pre>
+    </section>
+
+    <!-- Slide 4 -->
+    <section>
+        <h3>Rotación Continua</h3>
+        <p>Para crear una rotación continua, podemos usar la función <code>glRotatef</code> en cada actualización del temporizador:</p>
+        <pre><code class="language-cpp">
+float angle = 0.0f;
+
+void update(int value) {
+angle += 2.0f;  // Incrementa el ángulo
+if (angle > 360) angle -= 360;
+glutPostRedisplay();  // Volver a dibujar la escena
+glutTimerFunc(16, update, 0);  // 60 FPS
+}
+
+void display() {
+glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+glLoadIdentity();
+glRotatef(angle, 0.0f, 1.0f, 0.0f);  // Rotar alrededor del eje Y
+// Dibujar el objeto aquí
+glutSwapBuffers();
+}
+        </code></pre>
+    </section>
+
+    <!-- Slide 5 -->
+    <section>
+        <h3>Interpolación en la Animación</h3>
+        <p>La interpolación suaviza el movimiento entre dos posiciones o estados en la animación.</p>
+        <ul>
+            <li><strong>Interpolación lineal:</strong> Movimiento constante entre dos puntos.</li>
+            <li><strong>Interpolación acelerada/desacelerada:</strong> Cambios en la velocidad durante el movimiento.</li>
+        </ul>
+        <pre><code class="language-cpp">
+// Interpolación lineal
+float position = start + (end - start) * t;  // t varía entre 0 y 1
+        </code></pre>
+    </section>
+
+    <!-- Slide 6 -->
+    <section>
+        <h3>Ejemplo de Animación Completa</h3>
+        <p>A continuación, un ejemplo de cómo implementar una animación en OpenGL:</p>
+        <pre><code class="language-cpp">
+float position = 0.0f;
+int direction = 1;
+
+void update(int value) {
+position += 0.01f * direction;  // Mover el objeto
+if (position > 1.0f || position < -1.0f) direction = -direction;
+glutPostRedisplay();  // Redibujar la escena
+glutTimerFunc(16, update, 0);  // Llamar de nuevo en 16ms
+}
+
+void display() {
+glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+glLoadIdentity();
+glTranslatef(position, 0.0f, 0.0f);  // Mover el objeto en el eje X
+// Dibujar el objeto aquí
+glutSwapBuffers();
+}
+        </code></pre>
+    </section>
+
+    <!-- Slide 7 -->
+    <section>
+        <h3>Control de la Velocidad de Animación</h3>
+        <p>La velocidad de una animación se puede controlar cambiando el valor del incremento en cada actualización.</p>
+        <pre><code class="language-cpp">
+float speed = 0.02f;
+void update(int value) {
+position += speed * direction;
+if (position > 1.0f || position < -1.0f) direction = -direction;
+glutPostRedisplay();
+glutTimerFunc(16, update, 0);
+}
+        </code></pre>
+    </section>
+
+    <!-- Slide 8 -->
+    <section>
+        <h3>Ejercicio: Crear una Animación de Rotación y Traslación</h3>
+        <p>Implementa una animación en la que un objeto rota y se traslada simultáneamente:</p>
+        <ul>
+            <li>Usa <code>glRotatef</code> para la rotación continua.</li>
+            <li>Usa <code>glTranslatef</code> para mover el objeto a lo largo de un eje.</li>
+            <li>Controla la velocidad de ambas animaciones.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 9 -->
+    <section>
+        <h3>Resumen de lo aprendido</h3>
+        <ul>
+            <li>La animación en OpenGL se basa en actualizaciones cuadro por cuadro.</li>
+            <li>Los temporizadores son útiles para controlar la velocidad de la animación.</li>
+            <li>Las transformaciones como rotación, traslación y escalado son clave en las animaciones.</li>
+            <li>La interpolación se utiliza para suavizar el movimiento en la animación.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 10 -->
+    <section>
+        <h2>Bien Hecho</h2>
+        <p>¡Ahora puedes crear animaciones básicas en OpenGL!</p>
+    </section>
+
+</section>

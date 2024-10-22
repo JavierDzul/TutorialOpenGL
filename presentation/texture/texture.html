@@ -1,0 +1,126 @@
+<section>
+    <section data-auto-animate>
+        <h1 class="r-fit-text">
+            Texturizado
+        </h1>
+    </section>
+
+    <section>
+        <h3>¿Qué es el Texturizado?</h3>
+        <p>El texturizado es la técnica de aplicar una imagen (o "textura") sobre la superficie de un objeto 3D para darle detalle.</p>
+        <ul>
+            <li>Las texturas permiten representar detalles sin necesidad de incrementar el número de polígonos.</li>
+            <li>Se mapean en las coordenadas del objeto utilizando coordenadas UV.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 3 -->
+    <section>
+        <h3>Coordenadas de Textura (UV)</h3>
+        <p>Las coordenadas de textura o UV definen cómo una textura se ajusta a una superficie:</p>
+        <ul>
+            <li><strong>U:</strong> Representa la coordenada horizontal (ancho) de la textura.</li>
+            <li><strong>V:</strong> Representa la coordenada vertical (alto) de la textura.</li>
+        </ul>
+        <pre><code class="language-cpp">
+glTexCoord2f(u, v);
+        </code></pre>
+        <p>Se especifica antes de cada vértice para asignar la parte de la textura a ese vértice.</p>
+    </section>
+
+    <!-- Slide 4 -->
+    <section>
+        <h3>Carga de Texturas en OpenGL</h3>
+        <p>Para cargar una textura en OpenGL, seguimos estos pasos:</p>
+        <ol>
+            <li>Cargar la imagen de la textura en memoria.</li>
+            <li>Asignar la textura a un ID de OpenGL.</li>
+            <li>Configurar parámetros de la textura (como filtrado y envoltura).</li>
+        </ol>
+    </section>
+
+    <!-- Slide 5 -->
+    <section>
+        <h3>Código para Cargar una Textura</h3>
+        <pre><code class="language-cpp">
+GLuint texture;
+glGenTextures(1, &texture);  // Generar ID de textura
+glBindTexture(GL_TEXTURE_2D, texture);  // Enlazar la textura
+
+// Configuración de parámetros de la textura
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        </code></pre>
+    </section>
+
+    <!-- Slide 6 -->
+    <section>
+        <h3>Filtros de Textura</h3>
+        <p>Los filtros de textura definen cómo se mapea una textura cuando es escalada o minimizada:</p>
+        <ul>
+            <li><strong>GL_LINEAR:</strong> Filtrado lineal, suaviza la textura cuando se escala.</li>
+            <li><strong>GL_NEAREST:</strong> Filtrado cercano, utiliza el píxel más cercano (da un aspecto pixelado).</li>
+        </ul>
+    </section>
+
+    <!-- Slide 7 -->
+    <section>
+        <h3>Aplicación de Texturas a un Objeto</h3>
+        <p>Una vez cargada la textura, se debe mapear a un objeto:</p>
+        <pre><code class="language-cpp">
+glEnable(GL_TEXTURE_2D);  // Habilitar texturas 2D
+glBindTexture(GL_TEXTURE_2D, texture);
+
+glBegin(GL_QUADS);  // Dibujar un cuadrado con textura
+glTexCoord2f(0.0f, 0.0f); glVertex3f(-0.5f, -0.5f, 0.0f);  // Esquina inferior izquierda
+glTexCoord2f(1.0f, 0.0f); glVertex3f( 0.5f, -0.5f, 0.0f);  // Esquina inferior derecha
+glTexCoord2f(1.0f, 1.0f); glVertex3f( 0.5f,  0.5f, 0.0f);  // Esquina superior derecha
+glTexCoord2f(0.0f, 1.0f); glVertex3f(-0.5f,  0.5f, 0.0f);  // Esquina superior izquierda
+glEnd();
+        </code></pre>
+    </section>
+
+    <!-- Slide 8 -->
+    <section>
+        <h3>Configuración de la Envoltura de Textura</h3>
+        <p>La envoltura de textura define cómo se comporta la textura cuando las coordenadas UV están fuera del rango [0,1]:</p>
+        <ul>
+            <li><strong>GL_REPEAT:</strong> Repite la textura.</li>
+            <li><strong>GL_CLAMP_TO_EDGE:</strong> Extiende el último píxel en los bordes.</li>
+        </ul>
+        <pre><code class="language-cpp">
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+        </code></pre>
+    </section>
+
+    <!-- Slide 9 -->
+    <section>
+        <h3>Ejercicio: Aplicar Texturas a un Cubo</h3>
+        <p>Implementa texturas en las caras de un cubo:</p>
+        <ul>
+            <li>Carga una textura desde un archivo de imagen.</li>
+            <li>Asigna coordenadas UV a cada vértice del cubo.</li>
+            <li>Configura el filtrado y la envoltura de la textura.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 10 -->
+    <section>
+        <h3>Resumen de lo aprendido</h3>
+        <ul>
+            <li>El texturizado permite aplicar imágenes sobre superficies 3D.</li>
+            <li>Las coordenadas UV definen cómo una textura se ajusta a una superficie.</li>
+            <li>OpenGL permite configurar los filtros de textura y la envoltura para controlar su comportamiento.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 11 -->
+    <section>
+        <h2>Enhorabuena</h2>
+        <p>¡Ahora puedes aplicar texturas a tus objetos 3D en OpenGL!</p>
+    </section>
+
+</section>

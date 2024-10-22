@@ -1,0 +1,128 @@
+<section data-auto-animate>
+    <section>
+        <h1 class="r-fit-text">
+            Figuras Básicas
+        </h1>
+    </section>
+
+    <section>
+        <h3>Dibujo de Primitivas Básicas</h3>
+        <p>OpenGL permite dibujar diferentes formas geométricas utilizando primitivas. Estas son las unidades básicas del dibujo en OpenGL.</p>
+        <ul>
+            <li><strong>Puntos</strong> (`GL_POINTS`)</li>
+            <li><strong>Líneas</strong> (`GL_LINES`, `GL_LINE_STRIP`, `GL_LINE_LOOP`)</li>
+            <li><strong>Triángulos</strong> (`GL_TRIANGLES`, `GL_TRIANGLE_STRIP`, `GL_TRIANGLE_FAN`)</li>
+            <li><strong>Cuadrados y polígonos</strong> (`GL_QUADS`, `GL_POLYGON`)</li>
+        </ul>
+    </section>
+
+    <!-- Slide 3 -->
+    <section>
+        <h3>Ejemplo: Dibujo de un Triángulo</h3>
+        <pre><code class="language-cpp">
+glBegin(GL_TRIANGLES);
+glVertex3f(-0.5f, -0.5f, 0.0f);  // Vértice 1
+glVertex3f(0.5f, -0.5f, 0.0f);   // Vértice 2
+glVertex3f(0.0f, 0.5f, 0.0f);    // Vértice 3
+glEnd();
+        </code></pre>
+        <p>Este código dibuja un triángulo en el plano XY utilizando las funciones de primitivas de OpenGL.</p>
+    </section>
+
+    <!-- Slide 4 -->
+    <section>
+        <h3>Tipos de Primitivas</h3>
+        <p>Cada primitiva tiene su propósito:</p>
+        <ul>
+            <li><strong>Puntos:</strong> Dibujar un solo punto en el espacio.</li>
+            <li><strong>Líneas:</strong> Dibujar una o varias líneas conectando vértices.</li>
+            <li><strong>Triángulos:</strong> Las figuras más usadas para representar modelos 3D.</li>
+            <li><strong>Cuadrados:</strong> Dibujar formas planas y superficies simples.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 5 -->
+    <section>
+        <h3>Introducción a VBOs (Vertex Buffer Objects)</h3>
+        <p>Un VBO es una manera de almacenar los vértices de un objeto en la GPU para mejorar el rendimiento. Los vértices no necesitan enviarse repetidamente desde la CPU a la GPU.</p>
+        <ul>
+            <li><strong>VBO</strong>: Almacena los datos de los vértices.</li>
+            <li><strong>VAO</strong>: Agrupa y organiza varios VBOs para facilitar el renderizado.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 6 -->
+    <section>
+        <h3>Creación de un VBO</h3>
+        <pre><code class="language-cpp">
+GLuint VBO;
+glGenBuffers(1, &VBO);
+glBindBuffer(GL_ARRAY_BUFFER, VBO);
+glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+        </code></pre>
+        <p>Este código crea un VBO, lo vincula a OpenGL y carga los datos de los vértices en la memoria de la GPU.</p>
+    </section>
+
+    <!-- Slide 7 -->
+    <section>
+        <h3>Uso de VAOs (Vertex Array Objects)</h3>
+        <p>Los VAOs son usados para almacenar las configuraciones de los atributos de vértices, lo que simplifica el manejo de múltiples VBOs.</p>
+        <pre><code class="language-cpp">
+GLuint VAO;
+glGenVertexArrays(1, &VAO);
+glBindVertexArray(VAO);
+glBindBuffer(GL_ARRAY_BUFFER, VBO);
+glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+glEnableVertexAttribArray(0);
+        </code></pre>
+        <p>El VAO almacena los atributos y configuración de los vértices.</p>
+    </section>
+
+    <!-- Slide 8 -->
+    <section>
+        <h3>Dibujo de un Cubo con VBOs y VAOs</h3>
+        <p>Con el uso de VBOs y VAOs, podemos dibujar figuras complejas como un cubo 3D. A continuación, un código de ejemplo para crear un cubo.</p>
+        <pre><code class="language-cpp">
+float vertices[] = {
+// Coordenadas del cubo
+-0.5f, -0.5f, -0.5f,  0.5f, -0.5f, -0.5f,  0.5f,  0.5f, -0.5f,  -0.5f,  0.5f, -0.5f,
+-0.5f, -0.5f,  0.5f,  0.5f, -0.5f,  0.5f,  0.5f,  0.5f,  0.5f,  -0.5f,  0.5f,  0.5f
+};
+glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+        </code></pre>
+    </section>
+
+    <!-- Slide 9 -->
+    <section>
+        <h3>Ejercicio: Dibuja un Cubo</h3>
+        <p>Intenta implementar un cubo completo en OpenGL utilizando VBOs y VAOs para mejorar la eficiencia en el renderizado.</p>
+        <ul>
+            <li>Define los vértices del cubo.</li>
+            <li>Utiliza un VAO para configurar los atributos.</li>
+            <li>Renderiza el cubo en una escena 3D.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 10 -->
+    <section>
+        <h3>Resumen de lo aprendido</h3>
+        <ul>
+            <li>OpenGL permite dibujar figuras utilizando primitivas como puntos, líneas y triángulos.</li>
+            <li>VBOs y VAOs permiten almacenar los vértices en la GPU para mejorar el rendimiento.</li>
+            <li>Podemos combinar múltiples VBOs utilizando un VAO para manejar configuraciones complejas de vértices.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 11 -->
+    <section data-auto-animate>
+        <h2>Felicidades</h2>
+        <p>¡Ya sabes cómo dibujar figuras básicas y cómo optimizar el dibujo utilizando VBOs y VAOs!</p>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Felicidades</h2>
+        <p>¡Ya sabes cómo dibujar figuras básicas y cómo optimizar el dibujo utilizando VBOs y VAOs!</p>
+        <p>Estás listo para jugar con la perspectiva</p>
+    </section>
+
+</section>

@@ -4,20 +4,43 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Curso OpenGL</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/serif.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-external="presentation/title.html"></section>
+
+				<section data-external="presentation/content.html"></section>
+
+				<section data-external-replace="presentation/basics/introduction.html"></section>
+
+				<section data-external-replace="presentation/development enviroment/DE.html"></section>
+				
+				<section data-external-replace="presentation/fundaments/fundamentals.html"></section>
+
+				<section data-external-replace="presentation/basicFigures/BF.html"></section>
+				
+				<section data-external-replace="presentation/geometricTransformations/gt.html"></section>
+				
+				<section data-external-replace="presentation/camara/pc.html"></section>
+
+				<section data-external-replace="presentation/shadows/is.html"></section>
+
+				<section data-external-replace="presentation/texture/texture.html"></section>
+
+				<section data-external-replace="presentation/animation/animation.html"></section>
+
+				<section data-external-replace="presentation/user/userInteraction.html"></section>
+				
 			</div>
 		</div>
 
@@ -25,6 +48,9 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		
+		
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
@@ -32,8 +58,21 @@
 			Reveal.initialize({
 				hash: true,
 
+				dependencies: [
+					{
+						src: 'node_modules/reveal_external/external/external.js',
+						condition: function() {
+							return !!document.querySelector( '[data-external],[data-external-replace]' );
+						}
+					},
+
+				],
+
+				plugins: [ RevealZoom, RevealNotes, RevealMarkdown, RevealHighlight ],
+
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				
+
 			});
 		</script>
 	</body>

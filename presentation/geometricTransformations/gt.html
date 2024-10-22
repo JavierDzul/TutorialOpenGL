@@ -1,0 +1,139 @@
+<section>
+    <section data-auto-animate>
+        <h1 class="r-fit-text">
+            Transformaciones <br> Geométricas
+        </h1>
+    </section>
+
+    <section>
+        <h3>¿Qué son las Transformaciones Geométricas?</h3>
+        <p>Las transformaciones geométricas permiten manipular objetos en el espacio 3D. Las tres transformaciones principales son:</p>
+        <ul>
+            <li><strong>Traslación:</strong> Mover un objeto a una nueva posición.</li>
+            <li><strong>Rotación:</strong> Girar un objeto alrededor de un punto o un eje.</li>
+            <li><strong>Escalado:</strong> Cambiar el tamaño de un objeto.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 3 -->
+    <section>
+        <h3>Traslación</h3>
+        <p>La traslación mueve un objeto a una nueva posición en el espacio.</p>
+        <pre><code class="language-cpp">
+glTranslatef(x, y, z);
+        </code></pre>
+        <p><strong>x, y, z:</strong> Especifican la cantidad de movimiento en cada eje.</p>
+    </section>
+
+    <!-- Slide 4 -->
+    <section>
+        <h3>Rotación</h3>
+        <p>La rotación gira un objeto alrededor de un punto o eje.</p>
+        <pre><code class="language-cpp">
+glRotatef(angle, x, y, z);
+        </code></pre>
+        <p><strong>angle:</strong> El ángulo de rotación en grados.<br>
+            <strong>x, y, z:</strong> El eje de rotación.</p>
+    </section>
+
+    <!-- Slide 5 -->
+    <section>
+        <h3>Escalado</h3>
+        <p>El escalado cambia el tamaño de un objeto en uno o más ejes.</p>
+        <pre><code class="language-cpp">
+glScalef(x, y, z);
+        </code></pre>
+        <p><strong>x, y, z:</strong> Los factores de escalado para cada eje. Valores mayores que 1 agrandan el objeto, y valores menores que 1 lo reducen.</p>
+    </section>
+
+    <!-- Slide 6 -->
+    <section>
+        <h3>Combinación de Transformaciones</h3>
+        <p>Las transformaciones geométricas se pueden combinar aplicándolas secuencialmente.</p>
+        <pre><code class="language-cpp">
+glTranslatef(1.0f, 0.0f, 0.0f);  // Mover el objeto
+glRotatef(45.0f, 0.0f, 1.0f, 0.0f);  // Rotarlo 45 grados en el eje Y
+glScalef(2.0f, 2.0f, 2.0f);  // Escalarlo
+        </code></pre>
+        <p>El orden en que se aplican las transformaciones es importante.</p>
+    </section>
+
+    <!-- Slide 7 -->
+    <section>
+        <h3>Transformaciones y Matrices</h3>
+        <p>En OpenGL, las transformaciones geométricas se aplican utilizando matrices.</p>
+        <ul>
+            <li><strong>Matriz de Traslación:</strong> Desplaza los vértices a nuevas posiciones.</li>
+            <li><strong>Matriz de Rotación:</strong> Gira los vértices alrededor de un eje.</li>
+            <li><strong>Matriz de Escalado:</strong> Ajusta el tamaño de los vértices.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 8 -->
+    <section>
+        <h3>Matrices en OpenGL</h3>
+        <p>Las matrices en OpenGL se gestionan con la pila de matrices, que permite apilar y desapilar matrices para aplicar transformaciones de manera jerárquica.</p>
+        <ul>
+            <li><code>glPushMatrix()</code>: Guarda la matriz actual.</li>
+            <li><code>glPopMatrix()</code>: Restaura la matriz guardada.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 9 -->
+    <section>
+        <h3>Matriz de Modelo, Vista y Proyección</h3>
+        <p>OpenGL utiliza tres tipos de matrices para gestionar las transformaciones:</p>
+        <ul>
+            <li><strong>Matriz de Modelo:</strong> Define la posición y orientación de los objetos.</li>
+            <li><strong>Matriz de Vista:</strong> Define la posición de la cámara.</li>
+            <li><strong>Matriz de Proyección:</strong> Define cómo se proyecta la escena 3D en una pantalla 2D.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 10 -->
+    <section>
+        <h3>Uso de la Matriz de Proyección</h3>
+        <p>Para cambiar entre una proyección en perspectiva u ortográfica, se puede utilizar la función <code>glMatrixMode()</code> para cambiar entre las matrices:</p>
+        <pre><code class="language-cpp">
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+gluPerspective(fov, aspectRatio, near, far);  // Proyección en perspectiva
+        </code></pre>
+        <p><strong>fov:</strong> Ángulo de visión.<br>
+            <strong>aspectRatio:</strong> Relación de aspecto.<br>
+            <strong>near, far:</strong> Distancias de plano cercano y lejano.</p>
+    </section>
+
+    <!-- Slide 11 -->
+    <section>
+        <h3>Ejercicio: Animar una Figura</h3>
+        <p>Implementa un programa en OpenGL que rote continuamente un cubo en la pantalla.</p>
+        <ul>
+            <li>Utiliza <code>glRotatef</code> para la rotación.</li>
+            <li>Combina traslación, rotación y escalado.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 12 -->
+    <section>
+        <h3>Resumen de lo aprendido</h3>
+        <ul>
+            <li>Las transformaciones geométricas permiten manipular objetos en el espacio 3D mediante traslación, rotación y escalado.</li>
+            <li>Las transformaciones se aplican con matrices en OpenGL.</li>
+            <li>El uso adecuado de las matrices de modelo, vista y proyección es clave para controlar las posiciones y el renderizado de los objetos.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 13 -->
+    <section data-auto-animate>
+        <h2>Felicidades c:</h2>
+        <p>¡Ya sabes cómo aplicar transformaciones geométricas en OpenGL para mover, rotar y escalar objetos!</p>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Felicidades c:</h2>
+        <p>¡Ya sabes cómo aplicar transformaciones geométricas en OpenGL para mover, rotar y escalar objetos!</p>
+        <p>Ahora estás listo para jugar con la camara y proyección.</p>
+    </section>
+
+</section>

@@ -1,0 +1,176 @@
+<section>
+    <section data-auto-animate>
+        <h1 class="r-fit-text">
+            Entorno de <br> Desarrollo
+        </h1>
+    </section>
+
+
+    <section data-auto-animate>
+        <h1 class="r-fit-text">
+            Entorno de <br> Desarrollo
+        </h1>
+        <h1 class="r-fit-text">
+            Para este tutorial se requiere...
+        </h1>
+    </section>
+
+    <section data-auto-animate>
+        <hr>
+        <h1 style="font-size: 70px; text-align: center;">
+            Entorno de Desarrollo
+            <br>
+        </h1>
+        <hr>
+        <div style="display: flex; justify-content: space-between;">
+            <div style="flex: 2; padding: 20px;">
+                <h3>
+                    C++
+                </h3>
+                <p style="font-size: 30px;">
+                    Lenguaje a emplear, su alto rendimiento explota el potencial de OpenGL.
+                </p>
+                <img style="margin-top: 55px; height: 170px;"  class="r-frame" src="assets\images\C++.png" alt="">
+            </div>
+            <hr> <hr>
+            <div style="flex: 2; padding: 20px;">
+                <h3>
+                    OpenGL y FreeGlut
+                </h3>
+                <p style="font-size: 30px; ">
+                    FreeGlut es una implementacion de Glut, es necesario instalar ambas librerias.
+                </p>
+            </div>
+            <hr> <hr>
+            <div style="flex: 2; padding: 20px;">
+                <h3>
+                    DevC++
+                </h3>
+                <p style="font-size: 30px;">
+                    Se usará DevC++ por la facilidad que da para trabajar con este tipo de programas.
+                </p>
+                <img class="r-frame" src="assets\images\devC++.jpg" alt="">
+            </div>
+        </div>
+        
+    </section>
+
+    <section data-auto-animate>
+        <h1 class="r-fit-text">
+            Instalación
+        </h1>
+        <h1 class="r-fit-text">
+            De OpenGL y FreeGlut
+        </h1>
+    </section>
+
+    <section>
+        <h3>Instalación de OpenGL</h3>
+        <p><strong>OpenGL</strong> ya está preinstalado en la mayoría de los sistemas, pero puedes verificar la versión en tu tarjeta gráfica.</p>
+        <ul>
+            <li><strong>Windows:</strong> Ejecuta <code>dxdiag</code> en la consola.</li>
+            <li><strong>Alternativamente</strong> instala GlView</li>
+        </ul>
+    </section>
+
+    <!-- Slide 6 -->
+    <section>
+        <h3>Instalación de Controladores <br>(De ser necesario)</h3>
+        <p>Si es necesario, descarga los controladores más recientes desde el sitio web de tu fabricante.</p>
+    </section>
+
+    <!-- Slide 8 -->
+    <section>
+        <h3>Instalación de FreeGLUT en Windows</h3>
+        <ol>
+            <li>Descargar desde <a href="http://freeglut.sourceforge.net/">FreeGLUT en SourceForge</a>.</li>
+            <li>Extraer el archivo descargado.</li>
+            <li>Identificar los archivos:
+                <ul>
+                    <li><strong>freeglut.dll</strong> (Ejecutables)</li>
+                    <li><strong>freeglut.lib</strong> (Librerías)</li>
+                    <li><strong>freeglut.h</strong> (Cabeceras)</li>
+                </ul>
+            </li>
+        </ol>
+    </section>
+
+    <!-- Slide 9 -->
+    <section>
+        <h3>Configuración en Dev-C++</h3>
+        <ol>
+            <li>Abrir Dev-C++ y crear un nuevo proyecto de C++.</li>
+            <li>Seleccionar la opción <strong>Empty Project</strong> y elegir la plantilla **C++**.</li>
+            <li>Agregar las rutas de los archivos de FreeGLUT:
+                <ul>
+                    <li>Ve a "Project" -> "Project Options".</li>
+                    <li>En la pestaña de <strong>Parameters</strong>, añade en la sección de "Linker" las siguientes bibliotecas:
+                        <ul>
+                            <li><code>-lglu32</code></li>
+                            <li><code>-lopengl32</code></li>
+                            <li><code>-lfreeglut</code></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </section>
+
+    <!-- Slide 9 -->
+    <section>
+        <h3>Copiar DLL a Directorio del Proyecto</h3>
+        <p>Asegúrate de copiar el archivo <strong>freeglut.dll</strong> en la misma carpeta donde está el archivo ejecutable del proyecto (dentro de tu directorio de Debug o Release).</p>
+    </section>
+
+
+
+    <!-- Slide 11 -->
+    <section>
+        <h3 class="r-fit-text">Código de Ejemplo Para Probar La Instalación: Crear Ventana</h3>
+<pre><code class="language-cpp">
+#include &lt;GL/freeglut.h&gt;
+
+void display() {
+glClear(GL_COLOR_BUFFER_BIT);
+glFlush();
+}
+
+int main(int argc, char** argv) {
+glutInit(&argc, argv);
+glutCreateWindow("Ventana OpenGL");
+glutDisplayFunc(display);
+glutMainLoop();
+return 0;
+}
+</code></pre>
+    </section>
+
+    <!-- Slide 12 -->
+    <section>
+        <h3>Compilación y Ejecución</h3>
+        <p>Si has seguido correctamente los pasos, deberías poder compilar y ejecutar tu programa para ver una ventana básica de OpenGL.</p>
+    </section>
+
+    <!-- Slide 13 -->
+    <section>
+        <h3>Solución de Problemas Comunes</h3>
+        <ul>
+            <li><strong>Error de Biblioteca no Encontrada:</strong> Verifica las rutas de las librerías en el proyecto.</li>
+            <li><strong>Pantalla en Negro:</strong> Asegúrate de tener los controladores de gráficos actualizados.</li>
+            <li><strong>Errores al Compilar:</strong> Revisa las rutas de los archivos de cabecera y las bibliotecas.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 14 -->
+    <section data-auto-animate>
+        <h2>¡Instalación Completa!</h2>
+        <p>Ya tienes configurado tu entorno de desarollo para trabajar con OpenGL y FreeGLUT en C++.</p>
+    </section>
+
+    <section data-auto-animate>
+        <h2>¡Instalación Completa!</h2>
+        <p>Ya tienes configurado tu entorno de desarollo para trabajar con OpenGL y FreeGLUT en C++.</p>
+        <p>Ahora podemos empezar con los fundamentos de la libreria.</p>
+    </section>
+
+</section>

@@ -1,0 +1,124 @@
+<section>
+    <section data-auto-animate>
+        <h1 class="r-fit-text">
+            Iluminación y <br>Sombreado
+        </h1>
+    </section>
+    
+    <section>
+        <h3>¿Qué es la Iluminación en OpenGL?</h3>
+        <p>OpenGL utiliza un modelo de iluminación que simula la interacción de la luz con las superficies para producir sombras y reflejos.</p>
+        <ul>
+            <li>Define fuentes de luz.</li>
+            <li>Configura materiales de los objetos.</li>
+            <li>Calcula cómo la luz se refleja en las superficies.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 3 -->
+    <section>
+        <h3>Tipos de Iluminación</h3>
+        <p>OpenGL maneja tres tipos básicos de iluminación:</p>
+        <ul>
+            <li><strong>Luz ambiental:</strong> Luz uniforme que proviene de todas partes.</li>
+            <li><strong>Luz difusa:</strong> Luz que incide directamente sobre la superficie.</li>
+            <li><strong>Luz especular:</strong> Luz reflejada en superficies brillantes, creando puntos de reflejo.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 4 -->
+    <section>
+        <h3>Configuración de la Iluminación en OpenGL</h3>
+        <p>Para habilitar la iluminación, se debe usar <code>glEnable(GL_LIGHTING)</code> y configurar al menos una fuente de luz:</p>
+        <pre><code class="language-cpp">
+glEnable(GL_LIGHTING);
+glEnable(GL_LIGHT0);
+
+GLfloat light_position[] = { 1.0, 1.0, 1.0, 0.0 };
+glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+        </code></pre>
+    </section>
+
+    <!-- Slide 5 -->
+    <section>
+        <h3>Propiedades de las Fuentes de Luz</h3>
+        <p>Las fuentes de luz en OpenGL tienen varias propiedades que se pueden ajustar:</p>
+        <ul>
+            <li><strong>Posición:</strong> Definida con <code>glLightfv</code> usando <code>GL_POSITION</code>.</li>
+            <li><strong>Luz Ambiental:</strong> Componente uniforme de la luz que afecta toda la escena (<code>GL_AMBIENT</code>).</li>
+            <li><strong>Luz Difusa:</strong> Luz que se distribuye de manera uniforme desde la fuente (<code>GL_DIFFUSE</code>).</li>
+            <li><strong>Luz Especular:</strong> Brillo reflejado en las superficies (<code>GL_SPECULAR</code>).</li>
+        </ul>
+    </section>
+
+    <!-- Slide 6 -->
+    <section>
+        <h3>Configuración de Materiales</h3>
+        <p>Los materiales de los objetos en OpenGL definen cómo interactúan con la luz:</p>
+        <ul>
+            <li><strong>Material ambiental:</strong> Refleja la luz ambiental en la superficie.</li>
+            <li><strong>Material difuso:</strong> Refleja la luz difusa que incide directamente.</li>
+            <li><strong>Material especular:</strong> Refleja la luz especular, creando puntos brillantes.</li>
+        </ul>
+        <pre><code class="language-cpp">
+GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+GLfloat mat_shininess[] = { 50.0 };
+
+glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+        </code></pre>
+    </section>
+
+    <!-- Slide 7 -->
+    <section>
+        <h3>Normales y su Importancia</h3>
+        <p>Las normales son vectores perpendiculares a la superficie de los objetos y son necesarias para calcular el sombreado.</p>
+        <pre><code class="language-cpp">
+glBegin(GL_TRIANGLES);
+glNormal3f(0.0, 0.0, 1.0);  // Normal de la cara frontal
+glVertex3f(0.0, 1.0, 0.0);
+glVertex3f(-1.0, -1.0, 0.0);
+glVertex3f(1.0, -1.0, 0.0);
+glEnd();
+        </code></pre>
+        <p>Sin normales, OpenGL no puede calcular correctamente la interacción de la luz con la superficie.</p>
+    </section>
+
+    <!-- Slide 8 -->
+    <section>
+        <h3>Iluminación Direccional</h3>
+        <p>La luz direccional simula una fuente de luz lejana, como el sol, donde los rayos de luz son paralelos.</p>
+        <pre><code class="language-cpp">
+GLfloat light_direction[] = { 0.0, -1.0, -1.0, 0.0 };  // Luz desde arriba
+glLightfv(GL_LIGHT0, GL_POSITION, light_direction);
+        </code></pre>
+    </section>
+
+    <!-- Slide 9 -->
+    <section>
+        <h3>Ejercicio: Iluminar un Cubo</h3>
+        <p>Implementa la iluminación en un cubo en OpenGL. Usa:</p>
+        <ul>
+            <li><code>glEnable(GL_LIGHTING)</code> y <code>GL_LIGHT0</code>.</li>
+            <li>Configura las propiedades de la luz y los materiales.</li>
+            <li>Define las normales para cada cara del cubo.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 10 -->
+    <section>
+        <h3>Resumen de lo aprendido</h3>
+        <ul>
+            <li>La iluminación en OpenGL simula cómo la luz interactúa con las superficies.</li>
+            <li>Se pueden configurar múltiples fuentes de luz con propiedades como luz ambiental, difusa y especular.</li>
+            <li>Las normales son esenciales para calcular el sombreado correctamente.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 11 -->
+    <section>
+        <h2>Felicidades :O</h2>
+        <p>¡Ahora puedes aplicar iluminación básica en tus escenas 3D en OpenGL!</p>
+    </section>
+
+</section>

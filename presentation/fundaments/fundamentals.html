@@ -1,0 +1,108 @@
+<section>
+    <section data-auto-animate>
+        <h1 class="r-fit-text">
+            Fundamentos
+        </h1>
+    </section>
+
+    <section>
+        <h3>El Pipeline de Renderizado de OpenGL</h3>
+        <p>El pipeline de renderizado es el proceso por el cual OpenGL convierte los datos de una escena 3D en una imagen 2D.</p>
+        <ul>
+            <li>Entrada de Vértices</li>
+            <li>Shaders</li>
+            <li>Rasterización</li>
+            <li>Fragmentos</li>
+            <li>Mezclado y Buffer</li>
+        </ul>
+    </section>
+
+    <!-- Slide 3 -->
+    <section>
+        <h3>Etapas del Pipeline</h3>
+        <ul>
+            <li><strong>Vértices:</strong> Los puntos que definen las formas geométricas en 3D.</li>
+            <li><strong>Shaders:</strong> Programas que procesan los vértices y fragmentos para determinar el color final.</li>
+            <li><strong>Rasterización:</strong> Conversión de la representación de la escena en fragmentos (píxeles).</li>
+            <li><strong>Fragmentos:</strong> Píxeles procesados, que incluyen color, profundidad y otras propiedades.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 4 -->
+    <section>
+        <h3>Coordenadas y Sistemas de Coordenadas</h3>
+        <p>OpenGL utiliza varios sistemas de coordenadas para transformar objetos de 3D a 2D en la pantalla.</p>
+        <ul>
+            <li><strong>Coordenadas Locales:</strong> Relativas al objeto.</li>
+            <li><strong>Coordenadas Globales (Mundiales):</strong> Relativas a la escena completa.</li>
+            <li><strong>Coordenadas de Vista (Cámara):</strong> Relativas al punto de vista de la cámara.</li>
+            <li><strong>Coordenadas de Pantalla:</strong> Píxeles en la pantalla.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 5 -->
+    <section>
+        <h3>Transformaciones de Coordenadas</h3>
+        <p>Se utilizan matrices para transformar las coordenadas en OpenGL:</p>
+        <ul>
+            <li><strong>Matriz de Modelo:</strong> Ubicación y orientación del objeto.</li>
+            <li><strong>Matriz de Vista:</strong> Posición y orientación de la cámara.</li>
+            <li><strong>Matriz de Proyección:</strong> Cómo la escena se proyecta en 2D (ortogonal o perspectiva).</li>
+        </ul>
+    </section>
+
+    <!-- Slide 6 -->
+    <section>
+        <h3>Buffers en OpenGL</h3>
+        <ul>
+            <li><strong>Framebuffer:</strong> Almacena la imagen final que se mostrará en la pantalla.</li>
+            <li><strong>Color Buffer:</strong> Almacena los valores de color de los píxeles.</li>
+            <li><strong>Depth Buffer (Buffer de Profundidad):</strong> Almacena la profundidad de cada fragmento para gestionar qué objetos se superponen.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 7 -->
+    <section>
+        <h3>Framebuffer en Detalle</h3>
+        <p>El framebuffer es el espacio de memoria donde se almacena el resultado del renderizado. Incluye:</p>
+        <ul>
+            <li><strong>Color Buffer:</strong> Guarda el color final de cada píxel.</li>
+            <li><strong>Depth Buffer:</strong> Usa valores de profundidad para determinar qué objetos son visibles y cuáles están ocultos.</li>
+            <li><strong>Stencil Buffer:</strong> Se utiliza para máscaras o efectos especiales de renderizado.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 8 -->
+    <section>
+        <h3>Buffers de Profundidad</h3>
+        <p>El depth buffer, o buffer de profundidad, es esencial para determinar qué objetos están más cerca del punto de vista del observador.</p>
+        <ul>
+            <li><strong>Función Z:</strong> Compara los valores de profundidad de los fragmentos para saber cuál dibujar.</li>
+            <li>Se puede habilitar con <code>glEnable(GL_DEPTH_TEST)</code>.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 9 -->
+    <section>
+        <h3>Resumen de lo Aprendido</h3>
+        <ul>
+            <li>El pipeline de renderizado maneja los datos desde los vértices hasta los fragmentos finales.</li>
+            <li>Las coordenadas pasan por varias transformaciones antes de ser dibujadas en pantalla.</li>
+            <li>El uso de buffers es fundamental para obtener imágenes correctamente renderizadas.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 10 -->
+    <section data-auto-animate>
+        <h2>Felicidades</h2>
+        <p>¡Has aprendido los conceptos básicos del pipeline de OpenGL y la gestión de buffers!</p>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Felicidades</h2>
+        <p>¡Has aprendido los conceptos básicos del pipeline de OpenGL y la gestión de buffers!</p>
+        <p>Estás listo para hacer tus primeras graficaciones</p>
+    </section>
+
+
+</section>

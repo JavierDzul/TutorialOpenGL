@@ -1,0 +1,148 @@
+<section>
+
+    <section data-auto-animate>
+        <h1 class="r-fit-text">
+            Introducción
+        </h1>
+
+
+    </section>
+
+    <section data-auto-animate>
+        <h1 class="r-fit-text">
+            ¿Qué es OpenGL?
+        </h1>
+    </section>
+
+    <section data-auto-animate>
+        <h1 class="r-fit-text">
+            ¿Qué es OpenGL?
+        </h1>
+        <p>
+            Desarrollado a principios de los 90, es una interfaz para comunicarse con <em>hardware de graficación.</em>
+            <br>
+            <br>
+            El <em>GL</em> de su nombre representa <strong>Graphics Library</strong>.
+        </p>
+        <aside class="notes">
+            <p>
+                In a bold move, SGI cleaned up IRIS GL, removed all functionality that did not relate to computer graphics and released it to the public in 1992 as OpenGL (Open Graphics Library), a cross-platform standardized API for real-time computer graphics.
+            </p>
+        </aside>
+    </section>
+
+    <section data-auto-animate>
+        <h1 class="r-fit-text">
+            ¿Qué es OpenGL?
+        </h1>
+        <p>
+            Era lider en la industria de gráficos en tiempo real, definió estándares.
+            <br>
+            <br>
+            Principalmente por ser el único <strong>multiplataforma</strong> del momento
+        </p>
+    </section>
+
+    <section data-auto-animate>
+        <h1 class="r-fit-text" style="margin-bottom: 30px;">
+            <strong>Aportaciones de OpenGL</strong>
+        </h1>
+        <details style="margin-bottom: 20px;">
+            <summary>
+                Juegos de culto nacen con OpenGL.
+            </summary>
+            <p>
+                Half Life, Quake 2 y Unreal mostraron todo el poder de OpenGL.
+            </p>
+        </details>
+
+        <details style="margin-bottom: 20px;">
+            <summary>
+                Capaz de aprovechar las nuevas GPU's de la época.
+            </summary>
+            <p>
+                Junto a Direct3D, primeros en implementar el método de <em>Buffer Objects</em>.
+            </p>
+        </details>
+
+        <details style="margin-bottom: 20px;">
+            <summary>
+                Retrocompatibilidad y Multiplataforma.
+            </summary>
+            <p>
+                Capaz de funcionar con versiones antiguas 
+                independientemnte del SO debido a su sistema de <em>Context.</em>
+            </p>
+        </details>
+
+        <aside class="notes">
+            <p>T&L moved the vertex transformation calculations and lighting calculations from the computer's CPU to the GPU. The main advantage of a GPU is that it does floating-point operations very quickly since the hardware is dedicated to this task, while a CPU specializes in integer and more general-purpose operations.</p>
+            <br>
+            <p> Buffers had been around for a while in the form of display lists and vertex arrays, but they each had their drawbacks. Display lists still used the immediate mode, and vertex arrays were stored in the system's memory so they had to be transferred to the GPU every single call.</p>
+        </aside>
+    </section>
+
+</section>
+
+<section>
+    <section data-auto-animate>
+        <h1 class="r-fit-text">
+            ¿Qué es GLUT?
+        </h1>
+    </section>
+
+    <section data-auto-animate>
+        <h1  style="font-size: 80px;">
+            ¿Qué es GLUT?
+        </h1>
+
+        <p>
+            Sus siglas representan <em>Graphics Library Utility Toolkit</em>.
+            <br>
+        </p>
+        <p>
+            Nos permite crear el contexto adecuado para desarrollar programas independientes del SO.
+        </p>
+
+        <img class="r-frame r-stretch" src="assets\images\Captura.PNG" alt="OpenGL">
+
+        <aside class="notes">
+            <p>
+                Estas tareas no forman parte de la especificación de OpenGL; por lo que, a su alrededor, diferentes
+bibliotecas (toolkits en la jerga de OpenGL) han ido apareciendo para dar solución en diferentes plataformas a la creación de ventanas y a la gestión de la entrada del usuario. En el sitio web de
+OpenGL [3], se mencionan tres: GLUT, Freeglut y GLFW
+            </p>
+        </aside>
+
+    </section>
+
+    <section >
+        <div style="display: flex; justify-content: space-around;">
+
+            <div style="flex: 1; align-items: center;" >
+                <h1  style="text-align: center; font-size: 65px; margin-bottom: 20px;">
+                    ¿Qué es GLUT?
+                </h1>
+        
+                <p style="text-align: justify; margin-top: 20px" >
+                    Es la libreria con la crearemos el contexto para OpenGl.
+                </p>
+                <p style="text-align: justify; margin-top: 20px">
+                    Permite gestionar las ventanas y manejar el input.
+                </p>
+                <p style="text-align: justify; margin-top: 20px">
+                    En nuestro caso se utilizará la distribución de <strong>FreeGlut</strong>.
+                </p>
+            </div>
+
+            <div style="flex: 1; justify-content: last baseline;" >
+                <img style="height: 600px; width: 600px; margin-left: 90px;" class="r-frame" src="assets\images\potExample.png" alt="">
+            </div>
+
+        </div>
+        
+
+
+    </section>
+
+</section>

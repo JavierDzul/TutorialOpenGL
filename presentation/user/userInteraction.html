@@ -1,0 +1,127 @@
+<section>
+    <section data-auto-animate>
+        <h1 class="r-fit-text">
+            Interacción con el <br> Usuario
+        </h1>
+    </section>
+
+    <section>
+        <h3>Interacción con OpenGL</h3>
+        <p>En OpenGL, podemos capturar entradas del usuario, como el teclado y el mouse, para interactuar con la escena 3D.</p>
+        <ul>
+            <li>Teclas para mover o rotar objetos.</li>
+            <li>El mouse para manipular la cámara.</li>
+            <li>Eventos de tiempo real para animación o interacción continua.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 3 -->
+    <section>
+        <h3>Captura de Entrada del Teclado</h3>
+        <p>GLUT nos permite capturar eventos del teclado mediante la función <code>glutKeyboardFunc</code>:</p>
+        <pre><code class="language-cpp">
+void handleKeypress(unsigned char key, int x, int y) {
+if (key == 'w') {
+// Mover hacia adelante
+}
+if (key == 's') {
+// Mover hacia atrás
+}
+glutPostRedisplay();
+}
+        </code></pre>
+        <p>Se debe registrar la función de callback con <code>glutKeyboardFunc(handleKeypress)</code>.</p>
+    </section>
+
+    <!-- Slide 4 -->
+    <section>
+        <h3>Manejo de Teclas Especiales</h3>
+        <p>Además de las teclas normales, podemos manejar teclas especiales como las flechas de dirección con <code>glutSpecialFunc</code>:</p>
+        <pre><code class="language-cpp">
+void handleSpecialKeypress(int key, int x, int y) {
+if (key == GLUT_KEY_UP) {
+// Mover hacia arriba
+}
+if (key == GLUT_KEY_DOWN) {
+// Mover hacia abajo
+}
+glutPostRedisplay();
+}
+        </code></pre>
+    </section>
+
+    <!-- Slide 5 -->
+    <section>
+        <h3>Captura de Entrada del Mouse</h3>
+        <p>GLUT también nos permite manejar eventos del mouse con <code>glutMouseFunc</code>:</p>
+        <pre><code class="language-cpp">
+void handleMouse(int button, int state, int x, int y) {
+if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
+// Hacer algo cuando se hace clic con el botón izquierdo
+}
+}
+        </code></pre>
+        <p>Se puede registrar la función de callback con <code>glutMouseFunc(handleMouse)</code>.</p>
+    </section>
+
+    <!-- Slide 6 -->
+    <section>
+        <h3>Captura de Movimiento del Mouse</h3>
+        <p>Podemos capturar el movimiento del mouse cuando se arrastra con <code>glutMotionFunc</code>:</p>
+        <pre><code class="language-cpp">
+void handleMouseMotion(int x, int y) {
+// Actualizar la vista o manipular objetos según el movimiento del mouse
+glutPostRedisplay();
+}
+        </code></pre>
+    </section>
+
+    <!-- Slide 7 -->
+    <section>
+        <h3>Implementación de Controles de Cámara</h3>
+        <p>Utilizando la entrada del teclado y el mouse, podemos implementar un  de control de cámara.</p>
+        <ul style="font-size: 30px;">
+            <li>Teclas WASD para mover la cámara.</li>
+            <li>El mouse para rotar la vista.</li>
+        </ul>
+        <pre><code class="language-cpp">
+void handleKeypress(unsigned char key, int x, int y) {
+if (key == 'w') eyeZ -= 0.1f;  // Mover hacia adelante
+if (key == 's') eyeZ += 0.1f;  // Mover hacia atrás
+glutPostRedisplay();
+}
+
+void handleMouseMotion(int x, int y) {
+// Cambiar la dirección de la cámara según el movimiento del mouse
+glutPostRedisplay();
+}
+        </code></pre>
+    </section>
+
+    <!-- Slide 8 -->
+    <section>
+        <h3>Ejercicio: Implementar Navegación en una Escena</h3>
+        <p>Implementa un sistema de navegación en una escena 3D:</p>
+        <ul>
+            <li>Utiliza las teclas WASD para mover la cámara en los ejes X, Y y Z.</li>
+            <li>Utiliza el mouse para rotar la vista de la cámara.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 9 -->
+    <section>
+        <h3>Resumen de lo aprendido</h3>
+        <ul>
+            <li>En OpenGL, podemos capturar entradas del teclado y mouse para interactuar con la escena.</li>
+            <li>Se pueden implementar controles personalizados para mover objetos o manipular la cámara.</li>
+            <li>La interacción es clave para hacer que la escena sea dinámica y reactiva al usuario.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 10 -->
+    <section>
+        <h2>Felicidades</h2>
+        <p>¡Ahora puedes implementar interacción con el usuario en tus proyectos de OpenGL!</p>
+    </section>
+
+</section>

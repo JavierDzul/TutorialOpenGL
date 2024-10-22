@@ -1,0 +1,111 @@
+<section>
+    <section data-auto-animate>
+        <h1 class="r-fit-text">
+            Cámara y  <br>Proyección
+        </h1>
+    </section>
+
+    <section>
+        <h3>Proyecciones en OpenGL</h3>
+        <p>OpenGL admite dos tipos principales de proyección:</p>
+        <ul>
+            <li><strong>Proyección Ortográfica:</strong> No hay perspectiva. Los objetos no cambian de tamaño con la distancia.</li>
+            <li><strong>Proyección en Perspectiva:</strong> Los objetos más lejanos parecen más pequeños, imitando la forma en que el ojo humano percibe el mundo.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 3 -->
+    <section>
+        <h3>Proyección Ortográfica</h3>
+        <p>Para configurar una proyección ortográfica, se usa <code>glOrtho</code>:</p>
+        <pre><code class="language-cpp">
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+glOrtho(left, right, bottom, top, near, far);
+        </code></pre>
+        <p><strong>left, right:</strong> Límites izquierdo y derecho.<br>
+            <strong>bottom, top:</strong> Límites inferior y superior.<br>
+            <strong>near, far:</strong> Planos de recorte cercano y lejano.</p>
+    </section>
+
+    <!-- Slide 4 -->
+    <section>
+        <h3>Proyección en Perspectiva</h3>
+        <p>Para una proyección en perspectiva, se usa <code>gluPerspective</code>:</p>
+        <pre><code class="language-cpp">
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+gluPerspective(fov, aspectRatio, near, far);
+        </code></pre>
+        <p><strong>fov:</strong> Campo de visión en el eje vertical.<br>
+            <strong>aspectRatio:</strong> Relación de aspecto (ancho/alto).<br>
+            <strong>near, far:</strong> Planos de recorte cercano y lejano.</p>
+    </section>
+
+    <!-- Slide 5 -->
+    <section>
+        <h3>Matriz de Proyección</h3>
+        <p>La matriz de proyección transforma la escena 3D en coordenadas de clip antes de proyectarla en la pantalla.</p>
+        <ul>
+            <li><strong>Ortográfica:</strong> Se utiliza cuando el tamaño de los objetos no cambia con la distancia.</li>
+            <li><strong>Perspectiva:</strong> Imita la percepción visual del mundo real, donde los objetos se hacen más pequeños a medida que se alejan.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 6 -->
+    <section>
+        <h3>Configuración de la Cámara con <code>gluLookAt</code></h3>
+        <p><code>gluLookAt</code> es una función que permite posicionar la cámara en el espacio 3D.</p>
+        <pre><code class="language-cpp">
+glMatrixMode(GL_MODELVIEW);
+glLoadIdentity();
+gluLookAt(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ);
+        </code></pre>
+        <p><strong>eyeX, eyeY, eyeZ:</strong> Posición de la cámara.<br>
+            <strong>centerX, centerY, centerZ:</strong> Punto hacia donde mira la cámara.<br>
+            <strong>upX, upY, upZ:</strong> Vector "arriba" de la cámara.</p>
+    </section>
+
+    <!-- Slide 7 -->
+    <section>
+        <h3>Navegación de la Cámara</h3>
+        <p>Con <code>gluLookAt</code>, podemos permitir que el usuario "navegue" la escena moviendo la cámara.</p>
+        <ul>
+            <li>Utilizar teclas para mover la posición de la cámara (<code>eyeX</code>, <code>eyeY</code>, <code>eyeZ</code>).</li>
+            <li>Utilizar el mouse para cambiar la dirección de la cámara (<code>centerX</code>, <code>centerY</code>, <code>centerZ</code>).</li>
+        </ul>
+    </section>
+
+    <!-- Slide 8 -->
+    <section>
+        <h3>Ejercicio: Implementar una Cámara Movible</h3>
+        <p>Implementa un sistema básico de cámara movible en OpenGL utilizando las teclas WASD para desplazarte y el mouse para cambiar la dirección de la cámara.</p>
+        <ul>
+            <li>Usa <code>gluLookAt</code> para definir la posición y dirección de la cámara.</li>
+            <li>Permite que el usuario controle la posición de la cámara con las teclas y el mouse.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 9 -->
+    <section>
+        <h3>Resumen de lo aprendido</h3>
+        <ul>
+            <li>Existen dos tipos principales de proyecciones: ortográfica y perspectiva.</li>
+            <li>La cámara se puede posicionar y orientar utilizando <code>gluLookAt</code>.</li>
+            <li>La navegación en una escena 3D se puede implementar ajustando la posición y dirección de la cámara.</li>
+        </ul>
+    </section>
+
+    <!-- Slide 10 -->
+    <section data-auto-animate>
+        <h2>Felicidades ouo</h2>
+        <p>¡Ahora sabes cómo configurar la cámara y la proyección en OpenGL para controlar la visualización de la escena 3D!</p>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Felicidades ouo</h2>
+        <p>¡Ahora sabes cómo configurar la cámara y la proyección en OpenGL para controlar la visualización de la escena 3D!</p>
+        <p>Estás listo para jugar con la iluminación y sombras </p>
+    </section>
+
+</section>

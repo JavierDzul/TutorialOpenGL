@@ -1,13 +1,13 @@
 <section>
     <section data-auto-animate>
-        <h1 class="r-fit-text">
+        <h1 data-id="DEH" class="r-fit-text">
             Entorno de <br> Desarrollo
         </h1>
     </section>
 
 
     <section data-auto-animate>
-        <h1 class="r-fit-text">
+        <h1 data-id="DEH" class="r-fit-text">
             Entorno de <br> Desarrollo
         </h1>
         <h1 class="r-fit-text">
@@ -17,31 +17,33 @@
 
     <section data-auto-animate>
         <hr>
-        <h1 style="font-size: 70px; text-align: center;">
+        <h1 data-id="DEH" style="font-size: 70px; text-align: center;">
             Entorno de Desarrollo
-            <br>
         </h1>
-        <hr>
+        <hr style="margin: 0px;">
         <div style="display: flex; justify-content: space-between;">
             <div style="flex: 2; padding: 20px;">
                 <h3>
                     C++
                 </h3>
                 <p style="font-size: 30px;">
-                    Lenguaje a emplear, su alto rendimiento explota el potencial de OpenGL.
+                    Su alto rendimiento explota el potencial de OpenGL.
                 </p>
                 <img style="margin-top: 55px; height: 170px;"  class="r-frame" src="assets\images\C++.png" alt="">
             </div>
-            <hr> <hr>
+            <hr style="margin: 0px;"> <hr style="margin: 0px;">
             <div style="flex: 2; padding: 20px;">
                 <h3>
                     OpenGL y FreeGlut
                 </h3>
                 <p style="font-size: 30px; ">
-                    FreeGlut es una implementacion de Glut, es necesario instalar ambas librerias.
+                    FreeGlut es una implementacion de Glut.
+                </p>
+                <p style="font-size: 30px; ">
+                    Estan empaquetados juntos.
                 </p>
             </div>
-            <hr> <hr>
+            <hr style="margin: 0px;"> <hr style="margin: 0px;">
             <div style="flex: 2; padding: 20px;">
                 <h3>
                     DevC++
@@ -55,17 +57,32 @@
         
     </section>
 
+
+
+
     <section data-auto-animate>
-        <h1 class="r-fit-text">
-            Instalación
-        </h1>
-        <h1 class="r-fit-text">
-            De OpenGL y FreeGlut
-        </h1>
+        <div style="display: flex; flex-direction: row; justify-content: center; text-align: center;">
+            <h1 data-id="IH1" style="font-size: 250px;">
+                Instalación 
+            </h1>
+        </div>
     </section>
 
-    <section>
-        <h3>Instalación de OpenGL</h3>
+    
+
+
+    <section data-auto-animate="">
+
+        <div style="display: flex; flex-direction: row; justify-content: center;">
+            <h1 data-id="IH1" style="font-size: 100px; margin-right: 50px;">
+                Instalación 
+            </h1>
+            <h1 style="font-size: 100px;">
+                OpenGL
+            </h1>
+        </div>
+
+        
         <p><strong>OpenGL</strong> ya está preinstalado en la mayoría de los sistemas, pero puedes verificar la versión en tu tarjeta gráfica.</p>
         <ul>
             <li><strong>Windows:</strong> Ejecuta <code>dxdiag</code> en la consola.</li>
@@ -74,24 +91,59 @@
     </section>
 
     <!-- Slide 6 -->
-    <section>
-        <h3>Instalación de Controladores <br>(De ser necesario)</h3>
+    <section data-auto-animate="">
+        <div style="display: flex; flex-direction: row; justify-content: center;">
+            <h1 data-id="IH1" style="font-size: 100px; margin-right: 40px;">
+                Instalación 
+            </h1>
+            <h1 style="font-size: 100px;">
+                Controladores
+            </h1>
+        </div>
         <p>Si es necesario, descarga los controladores más recientes desde el sitio web de tu fabricante.</p>
+        <p><em>
+            Varía según la GPU 
+        </em></p>
     </section>
 
     <!-- Slide 8 -->
-    <section>
-        <h3>Instalación de FreeGLUT en Windows</h3>
+    <section data-auto-animate="">
+        <div style="display: flex; flex-direction: row; justify-content: center;">
+            <h1 data-id="IH1" style="font-size: 100px; margin-right: 40px;">
+                Instalación 
+            </h1>
+            <h1 style="font-size: 100px;">
+                FreeGlut
+            </h1>
+        </div>
         <ol>
-            <li>Descargar desde <a href="http://freeglut.sourceforge.net/">FreeGLUT en SourceForge</a>.</li>
-            <li>Extraer el archivo descargado.</li>
+            <li>Descargar desde <a href="https://www.transmissionzero.co.uk/software/freeglut-devel/">Transmission Zero</a>.</li>
+            <li>Extraer el archivo descargado <br> <em>freeglut-MinGW-3.0.0-1.mp</em>.</li>
             <li>Identificar los archivos:
                 <ul>
-                    <li><strong>freeglut.dll</strong> (Ejecutables)</li>
-                    <li><strong>freeglut.lib</strong> (Librerías)</li>
+                    <li><strong>freeglut.dll</strong> (Ejecutable)</li>
+                    <li><strong>freeglut.a</strong> (Librerías)</li>
                     <li><strong>freeglut.h</strong> (Cabeceras)</li>
                 </ul>
             </li>
+        </ol>
+    </section>
+
+
+    <section data-auto-animate="">
+        <div style="display: flex; flex-direction: row; justify-content: center;">
+            <h1 data-id="IH1" style="font-size: 100px; margin-right: 40px;">
+                Instalación 
+            </h1>
+            <h1 style="font-size: 100px;">
+                FreeGlut
+            </h1>
+        </div>
+        <ol start="4">
+            <li style="margin-bottom: 30px;">Copia los archivos <code>.a</code> a la carpeta <strong>lib</strong> de DevC++. <br>   <code>C:\Dev-Cpp\MinGW64\x86_64-w64-mingw32\lib</code>.</li>
+            <li style="margin-bottom: 30px;">Copia los archivos <code>.h</code> a la carpeta <strong>GL</strong> de DevC++.  <br> <code>C:\Dev-Cpp\MinGW64\x86_64-w64-mingw32\include\GL</code>. <br></li>
+            <li style="margin-bottom: 30px;">Copia <code>freeglut.dll</code> a la carpeta del ejecutable de tu proyecto.</li>
+            
         </ol>
     </section>
 
@@ -100,7 +152,7 @@
         <h3>Configuración en Dev-C++</h3>
         <ol>
             <li>Abrir Dev-C++ y crear un nuevo proyecto de C++.</li>
-            <li>Seleccionar la opción <strong>Empty Project</strong> y elegir la plantilla **C++**.</li>
+            <li>Seleccionar la opción <strong>Empty Project</strong> y elegir la plantilla C++.</li>
             <li>Agregar las rutas de los archivos de FreeGLUT:
                 <ul>
                     <li>Ve a "Project" -> "Project Options".</li>
@@ -116,18 +168,14 @@
         </ol>
     </section>
 
-    <!-- Slide 9 -->
-    <section>
-        <h3>Copiar DLL a Directorio del Proyecto</h3>
-        <p>Asegúrate de copiar el archivo <strong>freeglut.dll</strong> en la misma carpeta donde está el archivo ejecutable del proyecto (dentro de tu directorio de Debug o Release).</p>
-    </section>
+    
 
 
 
     <!-- Slide 11 -->
     <section>
         <h3 class="r-fit-text">Código de Ejemplo Para Probar La Instalación: Crear Ventana</h3>
-<pre><code class="language-cpp">
+<pre><code data-line-numbers data-trim data-noescape class="language-cpp">
 #include &lt;GL/freeglut.h&gt;
 
 void display() {

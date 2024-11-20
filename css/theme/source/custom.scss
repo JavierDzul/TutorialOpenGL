@@ -1,0 +1,139 @@
+/**
+ * A simple theme for reveal.js presentations, similar
+ * to the default theme. The accent color is darkblue.
+ *
+ * This theme is Copyright (C) 2012 Owen Versteeg, https://github.com/StereotypicalApps. It is MIT licensed.
+ * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@use "sass:color";
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+
+// Include theme-specific fonts
+
+
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: pt-serif, serif;
+$mainFontSize: 27px;
+
+// Headings
+$headingMargin: 0;
+$headingFont: josefin-sans, sans-serif;
+$headingFontWeight: 700;
+
+$headingLineHeight: 1.2;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingTextShadow: none;
+$heading1TextShadow: $headingTextShadow;
+
+$heading1Size: 3.052em;
+$heading2Size: 2.441em;
+$heading3Size: 1.953em;
+$heading4Size: 1.563em;
+$heading5Size: 1.250em;
+//END HEADINGS//
+
+// Vertical spacing between blocks of text
+$blockMargin: 0;
+
+
+//colors
+$black: #282b40;
+$black-65: rgba(0,0,0,.65);
+$black-50: rgba(0,0,0,.50);
+$black-15: rgba(0,0,0,.15);
+
+$white: #ffffff;
+$white-50: rgba(255,255,255,.50);
+$white-10: rgba(255, 255, 255, 0.10);
+
+$secondary: #3c989b;
+$tertiary: #ffac00;
+$accent: #fc4349;
+$light: #f1f2ec;
+
+$backgroundColor: $white;
+$headingColor: $black;
+$mainColor: $black;
+
+
+
+
+$codeFont: monospace;
+
+// Links and actions
+$linkColor: $secondary;
+$linkColorHover: color.scale( $linkColor, $lightness: 20% );
+
+// Text selection
+$selectionBackgroundColor: $secondary;
+$selectionColor: $white;
+
+// Colors used for UI elements that are overlaid on top of
+// the presentation
+$overlayElementBgColor: 240, 240, 240;
+$overlayElementFgColor: 0, 0, 0;
+
+// Generates the presentation background, can be overridden
+// to return a background image or gradient
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+
+//custom Styles
+body {
+    font-weight: 300;
+}
+
+.reveal {
+
+    //footer
+
+    footer{
+        position:absolute;
+        bottom: 3rem;
+        left: 5rem;
+        
+
+        p{
+            color: $black-50
+        }
+
+
+    }
+
+
+    //section
+
+    .slides > section {
+        box-sizing: border-box;
+        padding: 2rem;
+
+        *,
+        *::before,
+        *::after{
+            box-sizing: border-box;
+        }
+
+    }
+
+    section {
+
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        text-align: left;
+
+    }
+}
